@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TODO List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      text-align: center;
+      margin: 50px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+    }
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #866bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .todo-item {
+      background: white;
+      margin: 10px 0;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ccc;
+    }
+    .delete-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="hah">TODO LIST</h2>
+    <input type="text" id="noteInput" placeholder="Type a note..." />
+    <button onclick="addNote()" class="nana">SEND</button>
+    <button style="margin-left: 500px;margin-top: -300px;" onclick="rejim()"><img src="img/Vector.svg" alt=""></button>
+    <div id="todoContainer" style="background-color: white;"></div>
+  </div>
+
+  <script>
+    function addNote() {
+      const input = document.getElementById("noteInput");
+      const noteText = input.value.trim();
+      if (!noteText) return;
+
+      const noteDiv = document.createElement("div");
+      noteDiv.className = "todo-item";
+      noteDiv.innerHTML = `
+        <span>${noteText}</span>
+        <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+      `;
+      document.getElementById("todoContainer").appendChild(noteDiv);
+      input.value = "";
+    }
+    function rejim() {
+      let nana = document.querySelector('.hah');
+      let background = document.querySelector('body');
+      nana.style.color = 'white';
+      background.style.background = 'black';
+      let input = document.querySelector('#noteInput');
+      input.style.background = 'black';
+      input.style.color = 'white';
+      let container = document.getElementById('todoContainer');
+      container.style.color = 'white';
+      let nan = document.getElementsByClassName('noteDiv');
+      nana.style.background = 'black';
+    }
+  </script>
+</body>
+</html>
